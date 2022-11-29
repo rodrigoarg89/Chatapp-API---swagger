@@ -4,7 +4,7 @@ const swaggerUi = require("swagger-ui-express");
 
 const options = {
   definition: {
-    openapi: "3.0.0",
+    openapi: "3.0.0", // standar open Api que estamos usando
     info: {
       title: "Clon de un chat en node js",
       version: "1.0.0",
@@ -12,12 +12,13 @@ const options = {
     },
   },
   apis: [
-    "./src/routes/users.routes.js", 
-    "./src/models/users.models.js"
-  ],// van las rutas que vamos a documentar y el modelo que involucra  aesta ruta
+    "./src/routes/users.routes.js",
+    "./src/routes/conversation.routes.js",
+    "./src/models/users.models.js",
+  ],
 };
 
-const swaggerSpec = swaggerJSDoc(options);//especificaciones
+const swaggerSpec = swaggerJSDoc(options);
 
 // función para configruar la documentación
 // dos parametros --> app expres, port donde se ejecuta
@@ -35,4 +36,5 @@ const swaggerDocs = (app, port) => {
   );
 };
 
-module.exports = swaggerDocs;
+module.exports = swaggerDocs; // donde iniciamos nuestro servidor
+// app.listen

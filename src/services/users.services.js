@@ -10,11 +10,11 @@ class UserServices {
     }
   }
 
-  static async getAll() {
+  static async getAll(offset, limit) {
     try {
       const result = await Users.findAll({
         offset,
-        limit
+        limit,
       });
       return result;
     } catch (error) {
